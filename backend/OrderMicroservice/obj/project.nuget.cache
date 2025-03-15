@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "JxRjO9EGuOs=",
+  "success": true,
+  "projectFilePath": "/Users/shahadjeza/Documents/ELM_training/Assigment4_ngrx_and_microservices/backend/OrderMicroservice/OrderMicroservice.csproj",
+  "expectedPackageFiles": [
+    "/Users/shahadjeza/.nuget/packages/microsoft.aspnetcore.openapi/9.0.2/microsoft.aspnetcore.openapi.9.0.2.nupkg.sha512",
+    "/Users/shahadjeza/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
