@@ -156,3 +156,4 @@
 /Users/shahadjeza/Documents/ELM_training/Assigment4_ngrx_and_microservices/backend/ProductMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/shahadjeza/Documents/ELM_training/Assigment4_ngrx_and_microservices/backend/ProductMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/shahadjeza/Documents/ELM_training/Assigment4_ngrx_and_microservices/backend/ProductMicroservice/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/shahadjeza/Documents/ELM_training/Assigment4_ngrx_and_microservices/backend/ProductMicroservice/obj/Debug/net9.0/product.sourcelink.json

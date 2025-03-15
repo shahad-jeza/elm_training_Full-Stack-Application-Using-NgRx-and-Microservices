@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Product List</h1>
+
+  <!-- Add Product Button -->
+  <div class="text-end mb-3">
+    <button class="btn btn-primary" (click)="navigateToAddProduct()">Add Product</button>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading$ | async" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error$ | async as error" class="alert alert-danger">
+    {{ error }}
+  </div>
+
+  <!-- Product Table -->
+  <table class="table table-striped table-hover" *ngIf="(products$ | async) as products">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>
+          <button class="btn btn-info btn-sm me-2" (click)="viewProduct(product.id)">View</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- No Products Message -->
+  <div *ngIf="(products$ | async)?.length === 0 && !(loading$ | async)" class="alert alert-warning">
+    No products found.
+  </div>
+</div>

@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using ProductMicroservice.Data; // Ensure this is added
-// using ProductMicroservice.Seeders;
+using ProductMicroservice.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,15 +12,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+// Add CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200") // Allow requests from Angular app
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
-// Seed the database
-// using (var scope = app.Services.CreateScope())
-// {
-//     var services = scope.ServiceProvider;
-//     var context = services.GetRequiredService<AppDbContext>();
-//     await ProductSeeder.SeedProductsAsync(context);
-// }
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -31,6 +33,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Use CORS policy
+app.UseCors("AllowAngularApp");
+
 app.UseAuthorization();
 app.MapControllers();
 
