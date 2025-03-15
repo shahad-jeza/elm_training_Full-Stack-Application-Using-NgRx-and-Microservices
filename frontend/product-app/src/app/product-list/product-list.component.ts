@@ -45,4 +45,8 @@ export class ProductListComponent implements OnInit {
       this.store.dispatch(deleteProduct({ id }));
     }
   }
+    // Navigate to Order List
+    navigateToOrderList() {
+      this.router.navigate(['/orders']);
+    }
 }

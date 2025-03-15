@@ -1,11 +1,13 @@
 <div class="container mt-5">
   <h1 class="text-center mb-4">Product List</h1>
 
-  <!-- Add Product Button -->
-  <div class="text-end mb-3">
-    <button class="btn btn-primary" (click)="navigateToAddProduct()">Add Product</button>
+  <!-- Buttons Container -->
+  <div class="d-flex justify-content-end mb-3">
+    <!-- Add Product Button -->
+    <button class="btn btn-primary me-2" (click)="navigateToAddProduct()">Add Product</button>
+    <!-- Go to Order List Button (Yellow) -->
+    <button class="btn btn-warning" (click)="navigateToOrderList()">Go to Order List</button>
   </div>
-
   <!-- Loading Spinner -->
   <div *ngIf="loading$ | async" class="text-center">
     <div class="spinner-border text-primary" role="status">

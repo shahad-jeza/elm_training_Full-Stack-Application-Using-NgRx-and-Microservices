@@ -17,12 +17,12 @@ namespace OrderMicroservice.Data
             // Configure the one-to-many relationship
             modelBuilder.Entity<Order>()
                 .HasMany(o => o.OrderItems)
-                .WithOne(oi => oi.Order)
+                .WithOne()
                 .HasForeignKey(oi => oi.OrderId);
 
             // Seed data (optional)
             modelBuilder.Entity<Order>().HasData(
-                new Order { Id = 1 } // No OrderDate
+                new Order { Id = 1 }
             );
 
             modelBuilder.Entity<OrderItem>().HasData(

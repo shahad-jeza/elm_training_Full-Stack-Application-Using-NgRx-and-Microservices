@@ -96,6 +96,23 @@ namespace ProductMicroservice.Controllers
             return NoContent();
         }
 
+
+        [HttpGet("products")]
+public async Task<ActionResult<IEnumerable<Product>>> GetProductsByIds([FromQuery] int[] ids)
+{
+    if (ids == null || ids.Length == 0)
+    {
+        return BadRequest("No product IDs provided.");
+    }
+
+    var products = await _context.Products
+        .Where(p => ids.Contains(p.Id))
+        .ToListAsync();
+
+    return Ok(products);
+}
+
+
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.Id == id);
